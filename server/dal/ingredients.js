@@ -36,6 +36,5 @@ async function setQuantity(ingredientID, quantity) { // untested lmao
     return getIngredient(ingredientID)
 }
 
-setQuantity(1,6);
 
 module.exports = { createIngredient, getIngredient };
