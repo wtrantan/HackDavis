@@ -5,13 +5,13 @@ async function createIngredientsRecipes(ingredientsrecipesData) {
 
         /*
         ingredientsrecipessRecipes = {
-            ingredientID: 2,
-            recipeID: 7,
+            ingredientID: 1,
+            recipeID: 4,
             quantity: 35
         };
         */
 
-        const result = await connection.promise().query('INSERT INTO ingredientsrecipes SET ?', ingredientsrecipesData);
+        const result = await connection.promise().query('INSERT INTO ingredientsRecipes SET ?', ingredientsrecipesData);
         console.log('Created ingredientsrecipe');
         return result.insertId;
 
@@ -25,11 +25,16 @@ async function createIngredientsRecipes(ingredientsrecipesData) {
 }
 
 async function listIngredientsForRecipe(recipeID) {
-    const result = await connection.promise().query('SELECT FROM ingredientsrecipes WHERE recipeID == ?', ingredientsrecipesData);
+    const result = await connection.promise().query('SELECT * FROM ingredientsRecipes WHERE recipeID = ?', recipeID);
     console.log(result[0]);
     return result[0];
 }
 
+data = {
+    ingredientID: 2,
+    recipeID: 4,
+    quantity: 1
+};
+listIngredientsForRecipe(4);
 
-
-module.exports = { createIngredientsRecipes };
+module.exports = { createIngredientsRecipes, listIngredientsForRecipe };
