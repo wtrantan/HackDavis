@@ -1,5 +1,5 @@
 const express = require("express");
-const { generateRecipe } = require("../controllers/recipegeneration.js");
+const { generateRecipe } = require("../controllers/recipeGeneration.js");
 
 const router = express.Router();
 

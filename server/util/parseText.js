@@ -3,21 +3,22 @@
 const parseGPTResponse = (response) => {
     let lineSeparatedResponse = response.split("\n");
     let recipeName = lineSeparatedResponse[0];
-    let recipes = [];
+    let steps = [];
     let calories;
     let ingredientsUsed = [];
 
-    let emptyCounter = 0;
     let afterCalories = false;
-    for (let i = 1; i < lineSeparatedResponse.length; i++) {
-        if (lineSeparatedResponse === "") {
-            emptyCounter++;
-        } else if (emptyCounter < 2){
-            recipes.push(lineSeparatedResponse[i].match(/\w+\s(.*)/)[0])
-        } else if (emptyCounter === 2){
-            calories = lineSeparatedResponse.match(/[\d]/)[0];
-            afterCalories = true;
-        }
+    for (let i = 2; i < lineSeparatedResponse.length; i++) {
+        if (lineSeparatedResponse[0] !== '') {
+            if (isNumeric(lineSeparatedResponse[i].charAt(0))){
+                if (lineSeparatedResponse[i].match(/\w+\s(.*)/))
+                steps.push(lineSeparatedResponse[i].match(/\w+\s(.*)/)[0])
+            } else {
+                calories = Number(lineSeparatedResponse[i].match(/\d+/));
+                afterCalories = true;
+                console.log(calories);
+            }
+        } 
 
         if (afterCalories) {
             ingredientsUsed = lineSeparatedResponse.slice(i + 2);
@@ -25,8 +26,8 @@ const parseGPTResponse = (response) => {
         }
     }
 
-    ingredientsUsed.map((ingredient) => {
-        let ingredientParsed = ingredient.match(/\s(.*)/)[0];
+    ingredientsUsed = ingredientsUsed.map((ingredient) => {
+        let ingredientParsed = ingredient.match(/\s(.*)/)[1];
         let quantity;
         let measurementUnit;
         let ingredientName;
@@ -39,7 +40,7 @@ const parseGPTResponse = (response) => {
             }
         }
         info.push(ingredientParsed.slice(startIndex));
-        quantity = info[0];
+        quantity = Number(info[0]);
         measurementUnit = info[1];
         ingredientName = info[2];
         return { quantity, measurementUnit, ingredientName }
@@ -47,14 +48,20 @@ const parseGPTResponse = (response) => {
 
     return {
         recipeName,
+        steps,
         ingredientsUsed,
-        calories
+        calories,
     }
 
 }
 
+const isNumeric = (str) => {
+  return !isNaN(str)
+}
+
 const removeListNumber = (text) => {
     return text.substring(text.indexOf(".") + 1).trim();
-
 }
+
+module.exports = { parseGPTResponse, removeListNumber };
 
