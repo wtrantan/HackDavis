@@ -5,14 +5,15 @@ async function createUser(userData) {
 
     /*
     userData = {
+        name: 'david',
         email: 'david.is.cool@gmail.com',
         password: 'pasword123'
     };
     */
 
     const result = await connection.promise().query('INSERT INTO users SET ?', userData);
-    return result.insertId;
     console.log('Created user');
+    return result.insertId;
 
   } catch (error) { // handles duplicate emails
     if (error.errno === 1062) {
