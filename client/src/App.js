@@ -8,17 +8,6 @@ import About from "./Pages/About/About";
 import Login from "./Pages/Login/Login";
 
 function App() {
-<<<<<<< HEAD
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/login" element={<Login />} />
-            </Routes>
-        </BrowserRouter>
-    );
-=======
   const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
   const handleLogout = () => {
@@ -39,7 +28,6 @@ function App() {
     </BrowserRouter>
 
   );
->>>>>>> 4808993b7ce04f45c6abcfc95fef6a879eb85663
 }
 
 export default App;
