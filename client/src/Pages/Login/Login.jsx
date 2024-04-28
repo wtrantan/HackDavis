@@ -1,6 +1,7 @@
 import react from 'react';
 import Navbar from '../../Components/Navbar/Navbar.jsx';
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 import { Link } from 'react-router-dom'; // Import for navigation
 import './Login.css';
 import TextField from '@mui/material/TextField';
@@ -8,8 +9,8 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-const Login = () => {
-  
+const Login = (props) => {
+      const navigate = useNavigate()
       const [username, setUsername] = useState('');
       const [password, setPassword] = useState('');
   
@@ -20,7 +21,8 @@ const Login = () => {
           console.log('Password:', password);
       };
   
-      return (
+      return (<>
+      <Navbar isLoggedIn={false} handleLogout={props.handleLogout}/>
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
               <form onSubmit={handleSubmit}>
                   <Grid container spacing={3} direction="column" alignItems="center">
@@ -30,7 +32,7 @@ const Login = () => {
                       <Grid item>
                           <TextField
                               label="Username"
-                              variant="outlined"
+                              variant="standard"
                               type="username"
                               value={username}
                               onChange={(e) => setUsername(e.target.value)}
@@ -41,7 +43,7 @@ const Login = () => {
                       <Grid item>
                           <TextField
                               label="Password"
-                              variant="outlined"
+                              variant="standard"
                               type="password"
                               value={password}
                               onChange={(e) => setPassword(e.target.value)}
@@ -50,13 +52,16 @@ const Login = () => {
                           />
                       </Grid>
                       <Grid item>
-                          <Button variant="contained" type="submit">
+                          <Button variant="contained" type="submit" onClick={() => {
+                            props.handleLogin();
+                            navigate("/")
+                            }}>
                               Login
                           </Button>
                       </Grid>
                   </Grid>
               </form>
-          </Box>
+          </Box></>
       );
   }
 export default Login;

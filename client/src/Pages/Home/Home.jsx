@@ -3,7 +3,7 @@ import Navbar from '../../Components/Navbar/Navbar.jsx';
 const Home = () => {
     return(
         <>
-        <Navbar/>
+        <Navbar isLoggedIn={true}/>
         </>
     );
 }
