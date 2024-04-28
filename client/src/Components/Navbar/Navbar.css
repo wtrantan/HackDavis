@@ -12,11 +12,11 @@
     text-align: center; /* Center the title text */
     font-size: 1.5em; /* Adjust font size as needed */
     margin: 10px 0; /* Add some margin for spacing */
-    color: pink;
+      color: pink;
   }
 
 
-button {
+#navbar button {
     padding: 17px 35px;
     outline: none;
     text-decoration: none;
@@ -35,18 +35,18 @@ button {
     transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
   }
   
-  button span {
+  #navbar button span {
     color: #164ca7;
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.7px;
   }
   
-  button:hover {
+  #navbar button:hover {
     animation: rotate624 0.7s ease-in-out both;
   }
   
-  button:hover span {
+  #navbar button:hover span {
     animation: storm1261 0.7s ease-in-out both;
     animation-delay: 0.06s;
   }
