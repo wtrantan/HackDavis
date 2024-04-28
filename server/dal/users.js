@@ -24,13 +24,3 @@ async function createUser(userData) {
 }
 
 
-
-
-const testData = {
-  email : 'dsa@gmail.com',
-  password : 'a'
-}
-
-createUser(testData);  
-
-  
