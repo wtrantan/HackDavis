@@ -16,8 +16,8 @@
 }
 
 #inventory {
-    grid-column: 1;
-    grid-row: 1;
+    grid-column: span 1;
+    grid-row: span 1;
     height: 100%;
     width: 100%;
     border: 3px solid rgb(101, 24, 101);
@@ -28,6 +28,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 #inventory h1 {
@@ -71,7 +72,7 @@
 
 #brewButton:hover {
     cursor: pointer;
-    background-color:#562a6a
+    background-color: #562a6a
 }
 
 .openedFridge {
@@ -79,14 +80,132 @@
     height: 100%;
 }
 
+.openedFridge:hover {
+    cursor: pointer;
+}
+
 .closedFridge {
     width: 100%;
     height: 100%;
 }
+
+.closedFridge:hover {
+    cursor: pointer;
+}
+
+.ingredients {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(0, -50%);
+    height: 40vh;
+    z-index: 10;
+    overflow: scroll;
+    background-color: rgb(73, 73, 73);
+    padding: 0 10px;
+    color: pink;
+    max-width: 100%;
+
+}
+
+.ingredients::-webkit-scrollbar {
+    display: none;
+}
+
+.addIngredientsButton {
+    position: absolute;
+    top: 73%;
+    left: 15%;
+    transform: translate(0, -50%);
+    z-index: 10;
+    color: pink;
+    background-color: #41204f;
+    font-family: "Montserrat";
+}
+
+.addIngredientsButton:hover {
+    cursor: pointer;
+}
+
 #karina {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
 }
-#karina img{
+
+#karina img {
     width: 50px;
+}
+
+.addIngredientsPopup {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(300px, 50%, 80vw);
+    height: 50%;
+    background-color: black;
+    border: 2px solid #592079;
+    border-radius: 5px;
+    z-index: 20;
+    animation: fly-up-bottom 0.5s ease-out 1;
+    animation-fill-mode: forwards;
+    color: pink;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 2rem;
+    font-family: "Montserrat";
+    justify-content: center;
+}
+
+.ingredientForm {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.closeIcon {
+    cursor: pointer;
+}
+
+.closeIcon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.ingredientInput {
+    flex: 1;
+    max-width: 60%;
+}
+
+
+
+.darkOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 15;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.submitIngredientButton {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 2rem;
+    font-family: "Montserrat";
+}
+
+@keyframes fly-up-bottom {
+    from {
+        bottom: -50%;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 0%;
+        opacity: 1;
+    }
 }

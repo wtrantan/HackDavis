@@ -5,7 +5,7 @@ function Navbar(props) {
 
     return (
         <nav id="navbar" className="Navbar">
-            <div className="title">Nutrichin</div>
+            <div className="title">The Cauldron</div>
             {props.isLoggedIn && (
                 <Link to="/Login" id="right">
                     <button className="btn-shine" onClick={props.handleLogout}>
