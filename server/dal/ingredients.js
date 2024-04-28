@@ -4,7 +4,7 @@ async function createIngredient(ingredientData) {
     try {
 
         /*
-        userData = {
+        ingredientData = {
             ingredientName: 'Jasmine Rice',
             quantity: 7,
             measurementUnit: 'pounds'
@@ -30,12 +30,12 @@ async function getIngredient(ingredientID) {
     return result[0][0];
 }
 
-userData = {
-    ingredientName: 'Jasmine Rice',
-    quantity: 7,
-    measurementUnit: 'pounds'
-};
+async function setQuantity(ingredientID, quantity) { // untested lmao
+    const updateResult = await connection.promise().query(
+        'UPDATE ingredients SET quantity = ? WHERE ingredientID = ?', [quantity, ingredientID]);
+    return getIngredient(ingredientID)
+}
 
-getIngredient(1);
+setQuantity(1,6);
 
 module.exports = { createIngredient, getIngredient };
