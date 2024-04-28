@@ -1,0 +1,59 @@
+#HomePage {
+    width: 100%;
+    height: 100%;
+    background-color: #b3b2b1;
+}
+
+#main-area {
+    width: calc(100% - 1.9rem);
+    height: calc(100% - 6.9rem);
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 6fr 1fr;
+    gap: 1rem 5rem;
+}
+
+#inventory {
+    grid-column: 1;
+    grid-row: 1;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(78, 12, 193);
+    display: flex;
+    align-items: center;
+}
+
+#recipes {
+    background-color: pink;
+}
+
+#brewButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#brewButton {
+    padding: 1rem;
+    font-size: 2rem;
+    background-color: #41204f;
+    color: pink;
+    border: white 2px solid;
+
+    font-family: "Montserrat";
+    transition: 0.1s;
+}
+
+#brewButton:hover {
+    cursor: pointer;
+    background-color:#562a6a
+}
+
+.openedFridge {
+    width: 100%;
+}
+
+.closedFridge {
+    width: 100%;
+}
