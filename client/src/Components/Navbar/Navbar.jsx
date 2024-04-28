@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Import for navigation
-
+import './Navbar.css';
 function Navbar() {
   // A simple state to simulate a logout action
   const [isLoggedIn, setIsLoggedIn] = useState(true); 
@@ -11,16 +11,14 @@ function Navbar() {
   };
 
   return (
-    <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem' }}>
-      <div>
-        <Link to="/Home">Home</Link>
-        <Link to="/about" style={{ marginLeft: '1rem' }}>About</Link>
-      </div>
-
+    <nav id="navbar" className=''>
+       <div className="title">Karina</div>
       {isLoggedIn && (
-        <Link to="/Login"><button onClick={handleLogout}>Logout</button></Link>
+
+        <Link to="/Login" id="right"><button className='btn-shine' onClick={handleLogout}>Logout</button></Link>
         
       )}
+     
     </nav>
   );
 }
