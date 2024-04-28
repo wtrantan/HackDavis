@@ -17,7 +17,6 @@ class OpenAI {
    */
   async getRecipeGeneration(ingredients, temperature) {
     try {
-      // console.log(ingredients);
       if (ingredients.length !== 0) {
         let ingredientsString = ""
         for (let i = 0; i < ingredients.length; i++) {
@@ -54,6 +53,7 @@ class OpenAI {
         });
   
         let content = response.data.choices[0].message.content;
+
         return content
       }
     } catch (err) {

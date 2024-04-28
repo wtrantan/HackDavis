@@ -14,6 +14,9 @@ const generateRecipe = async (req, res) => {
 
     console.log(recipe);
     const recipeParsed = parseGPTResponse(recipe);
+    if (recipeParsed === "error") {
+        res.status(400).json({context: "error"})
+    }
 
 
     res.status(200).json({context: recipeParsed});

@@ -11,8 +11,6 @@ import { useState } from "react";
 import CloseIcon from '@mui/icons-material/Close';
 import { generateRecipe } from "../../requests/gpt.js";
 
-const testIngredients = [];
-
 const Home = (props) => {
     const [isAddingIngredients, setIsAddingIngredients] = useState(false);
     const [fridgeOpened, setFridgeOpened] = useState(false);
@@ -30,6 +28,7 @@ const Home = (props) => {
             const ingredientQuantityNum = Number(ingredientQuantity)
             props.addUserIngredients(ingredientName, ingredientQuantityNum, ingredientUnits);
         }
+        setIsAddingIngredients(false)
     }
 
     // const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -37,6 +36,10 @@ const Home = (props) => {
     const brew = async () => {
         setIsBrewing(true);
         const newRecipe = await generateRecipe(props.ingredients);
+        if (newRecipe === "error") {
+            setIsBrewing(false);
+            return;
+        }
         props.addNewRecipe(newRecipe);
         console.log(newRecipe);
         setIsBrewing(false);
@@ -112,7 +115,7 @@ const Home = (props) => {
                     <div className="list">
                         {props.recipes.map((recipe, index) => {
                             return (
-                                <div key={index} className="individualRecipe" key={index}>
+                                <div key={index} className="individualRecipe">
                                     <h1 key={index} >{recipe.recipeName}</h1>
                                     {recipe.steps.map((step) => {
                                         return <p className="step">{step}</p>

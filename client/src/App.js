@@ -112,13 +112,19 @@ function App() {
     const handleLogout = () => {
         setIsLoggedIn(false);
     };
-    const handleLogin = () => {
+    const handleLogin = (user, pass) => {
+        if (user === "William" && pass === "Trantan") {
+            setIngredients([]);
+            setRecipes([]);
+        }
         setIsLoggedIn(true);
+
     };
 
     //add ingredients for specific user later
     const addUserIngredients = (ingredientName, quantity, measurementUnit) => {
         ingredients.push({ ingredientName, quantity, measurementUnit });
+        console.log(ingredients);
     };
 
     const addNewRecipe = (recipe) => {

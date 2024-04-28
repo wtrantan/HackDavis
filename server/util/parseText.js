@@ -26,7 +26,10 @@ const parseGPTResponse = (response) => {
     }
 
     ingredientsUsed = ingredientsUsed.map((ingredient) => {
-        let ingredientParsed = ingredientsParsed = ingredient.match(/\s(.*)/)[1];
+        if (!ingredient.match(/\s(.*)/)) {
+            return "error"
+        }
+        let ingredientParsed = ingredient.match(/\s(.*)/)[0];
         let quantity;
         let measurementUnit;
         let ingredientName;

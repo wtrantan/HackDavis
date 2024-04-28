@@ -58,7 +58,7 @@ const Login = (props) => {
                       </Grid>
                       <Grid item>
                           <Button sx={{background:'purple' }} variant="contained" type="submit" onClick={() => {
-                            props.handleLogin();
+                            props.handleLogin(username, password);
                             navigate("/")
                             }}>
                               Login
