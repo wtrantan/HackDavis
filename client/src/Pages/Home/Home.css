@@ -83,3 +83,10 @@
     width: 100%;
     height: 100%;
 }
+#karina {
+    display: flex;
+    justify-content:space-between;
+}
+#karina img{
+    width: 50px;
+}

@@ -3,7 +3,8 @@ import "./Home.css";
 
 import fridgeOpen from "../../assets/images/fridge_open.png";
 import fridgeClosed from "../../assets/images/fridge_closed.png";
-
+import karinaStir from "../../assets/images/KarinaStir.gif";
+import karinaDance from "../../assets/images/karinaDance.gif";
 import { useState } from "react";
 
 const testIngredients = [
@@ -40,7 +41,13 @@ const Home = () => {
                 <div id="brewButtons">
                     <button id="brewButton">Brew Something New</button>
                 </div>
+                <div id="karina">
+                    <div>
 
+                    </div>
+                    <img className="" src={karinaDance}></img>
+
+                </div>
             </div>
         </div>
     );
