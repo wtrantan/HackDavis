@@ -1,5 +1,6 @@
 import react from 'react';
 import Navbar from '../../Components/Navbar/Navbar.jsx';
+import Sky from '../../Components/Sky/Sky.jsx';
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import { Link } from 'react-router-dom'; // Import for navigation
@@ -23,6 +24,7 @@ const Login = (props) => {
   
       return (<>
       <Navbar isLoggedIn={false} handleLogout={props.handleLogout}/>
+      <Sky/>
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
               <form onSubmit={handleSubmit}>
                   <Grid container spacing={3} direction="column" alignItems="center">
