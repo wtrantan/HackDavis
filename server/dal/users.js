@@ -29,4 +29,4 @@ async function getUser(userID) {
   returnresult[0][0];
 }
 
-export { createUser, getUser };
+module.exports = { createUser, getUser };
