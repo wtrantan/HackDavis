@@ -4,7 +4,7 @@ async function createIngredientsRecipes(ingredientsrecipesData) {
     try {
 
         /*
-        ingredientsrecipessRecipes = {
+        ingredientsrecipesRecipes = {
             ingredientID: 1,
             recipeID: 4,
             quantity: 35
