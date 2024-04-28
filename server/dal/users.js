@@ -28,3 +28,5 @@ async function getUser(userID) {
   const result = await connection.promise().query('SELECT * FROM users WHERE userID = ?', userID);
   returnresult[0][0];
 }
+
+export { createUser, getUser };
