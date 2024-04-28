@@ -44,6 +44,4 @@ async function getRecipesForUser(userID) {
     return result[0];
 }
 
-getRecipesForUser(14);    
-
-module.exports = { createRecipe, getRecipe };
+module.exports = { createRecipe, getRecipe, getRecipesForUser };
