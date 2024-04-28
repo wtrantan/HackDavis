@@ -7,6 +7,7 @@ const dal = { // dal means Data Access Layer
   recipes,
   users,
   ingredients,
+  ingredientsRecipes
 };
 
 module.exports = dal;

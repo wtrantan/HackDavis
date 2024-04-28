@@ -30,7 +30,7 @@ async function getIngredient(ingredientID) {
     return result[0][0];
 }
 
-async function setQuantity(ingredientID, quantity) { // untested lmao
+async function setQuantity(ingredientID, quantity) { 
     const updateResult = await connection.promise().query(
         'UPDATE ingredients SET quantity = ? WHERE ingredientID = ?', [quantity, ingredientID]);
     return getIngredient(ingredientID)

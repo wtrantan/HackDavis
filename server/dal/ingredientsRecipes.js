@@ -5,14 +5,14 @@ async function createIngredientsRecipes(ingredientsrecipesData) {
 
         /*
         ingredientsrecipessRecipes = {
-            ingredientsrecipesName: 'Jasmine Rice',
-            quantity: 7,
-            measurementUnit: 'pounds'
+            ingredientID: 2,
+            recipeID: 7,
+            quantity: 35
         };
         */
 
-        const result = await connection.promise().query('INSERT INTO ingredientsrecipess SET ?', ingredientsrecipesData);
-        console.log('Created ingredientsrecipes');
+        const result = await connection.promise().query('INSERT INTO ingredientsrecipes SET ?', ingredientsrecipesData);
+        console.log('Created ingredientsrecipe');
         return result.insertId;
 
     } catch (error) { // handles foreign key restraint
@@ -24,18 +24,12 @@ async function createIngredientsRecipes(ingredientsrecipesData) {
     }
 }
 
-async function getIngredientsRecipes(ingredientsrecipesID) {
-    const result = await connection.promise().query('SELECT * FROM ingredientsrecipess WHERE ingredientsrecipesID = ?', ingredientsrecipesID);
-    console.log(result[0][0]);
-    return result[0][0];
+async function listIngredientsForRecipe(recipeID) {
+    const result = await connection.promise().query('SELECT FROM ingredientsrecipes WHERE recipeID == ?', ingredientsrecipesData);
+    console.log(result[0]);
+    return result[0];
 }
 
-userData = {
-    ingredientsrecipesName: 'Jasmine Rice',
-    quantity: 7,
-    measurementUnit: 'pounds'
-};
 
-getIngredientsRecipes(1);
 
-module.exports = { createIngredientsRecipes, getIngredientsRecipes };
+module.exports = { createIngredientsRecipes };
