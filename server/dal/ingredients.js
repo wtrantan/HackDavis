@@ -15,9 +15,9 @@ async function createIngredient(ingredientData) {
         console.log('Created ingredient');
         return result.insertId;
 
-    } catch (error) { // handles duplicate ingredientNames
-        if (error.errno === 1062) {
-            console.error('Error: Duplicate entry (1062)');
+    } catch (error) { // handles foreign key restraint
+        if (error.errno === 1452) {
+            console.error('Error: Fails foreign key restraint (1452)');
         } else {
             throw error;
         }
