@@ -1,7 +1,5 @@
 const connection = require('./connection.js');
 
-
-
 async function createUser(userData) {
     try {
 
@@ -12,30 +10,27 @@ async function createUser(userData) {
         };
         */
 
-        userAlreadyExists(userData.email);
-
         const result = await connection.promise().query('INSERT INTO users SET ?', userData);
         return result.insertId;
-        console.log('Created user') 
+        console.log('Created user'); 
 
-      } catch (error) {
-        throw error; 
+      } catch (error) { // handles duplicate emails
+        if (error.errno === 1062) {
+          console.error('Error: Duplicate entry (1062)');
+        } else {
+          throw error;
+        }
       }
 }
 
-async function userAlreadyExists(email) {
-    try {
-        const query = ` SELECT EXISTS ( SELECT 1 FROM users WHERE email = ? ); `;
-        const result = await connection.promise().query(query, email);
-        console.log(result);
-    } catch (error) {
-        throw error;
-    }
+
+
+
+const testData = {
+  email : 'dsa@gmail.com',
+  password : 'a'
 }
 
-testData = {
-    email: 'asd@gamil.com',
-    password: 'aaa'
-};
+createUser(testData);  
 
-createUser(testData);
+  
