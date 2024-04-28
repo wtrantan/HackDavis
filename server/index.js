@@ -7,6 +7,8 @@ const dotenv = require("dotenv");
 
 const recipeGenerationRoutes = require("./routes/recipeGeneration.js");
 
+const dal = require('./dal');
+
 dotenv.config();
 const PORT = process.env.PORT || 3001;
 

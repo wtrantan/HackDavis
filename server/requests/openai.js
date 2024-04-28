@@ -35,7 +35,6 @@ class OpenAI {
   
         let gptUserContent = ingredientsString;
   
-        console.log(gptUserContent);
         
         const response = await this.openai.createChatCompletion({
           model: "gpt-3.5-turbo",
@@ -53,7 +52,6 @@ class OpenAI {
         });
   
         let content = response.data.choices[0].message.content;
-        console.log(content);
         return content
       }
     } catch (err) {

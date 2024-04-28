@@ -107,6 +107,7 @@ const testIngredients = [
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [ingredients, setIngredients] = useState(testIngredients);
+    const [recipes, setRecipes] = useState([]);
 
     const handleLogout = () => {
         setIsLoggedIn(false);
@@ -120,11 +121,15 @@ function App() {
         ingredients.push({ ingredientName, quantity, measurementUnit})
     }
 
+    const addNewRecipe = (recipe) => {
+        recipes.push(recipe);
+    }
+
     
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home ingredients={ingredients} addUserIngredients={addUserIngredients}/>} />
+                <Route path="/" element={<Home ingredients={ingredients} addUserIngredients={addUserIngredients} addNewRecipe={addNewRecipe} recipes={recipes}/>}/>
                 <Route path="/about" element={<About />} />
                 <Route
                     path="/login"

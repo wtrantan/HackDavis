@@ -16,7 +16,6 @@ const parseGPTResponse = (response) => {
             } else {
                 calories = Number(lineSeparatedResponse[i].match(/\d+/));
                 afterCalories = true;
-                console.log(calories);
             }
         } 
 
@@ -27,7 +26,6 @@ const parseGPTResponse = (response) => {
     }
 
     ingredientsUsed = ingredientsUsed.map((ingredient) => {
-        let ingredientParsed = ingredient.match(/\s(.*)/)[1];
         let quantity;
         let measurementUnit;
         let ingredientName;

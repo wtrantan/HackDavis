@@ -4,9 +4,12 @@ import "./Home.css";
 import fridgeOpen from "../../assets/images/fridge_open.png";
 import fridgeClosed from "../../assets/images/fridge_closed.png";
 import karinaStir from "../../assets/images/KarinaStir.gif";
+import karinaStir1 from "../../assets/images/KarinaStir_1.gif"
 import karinaDance from "../../assets/images/karinaDance.gif";
+import karinaH from "../../assets/images/karinaHeart.png";
 import { useState } from "react";
 import CloseIcon from '@mui/icons-material/Close';
+import { generateRecipe } from "../../requests/gpt.js";
 
 const testIngredients = [];
 
@@ -16,6 +19,7 @@ const Home = (props) => {
     const [ingredientName, setIngredientName] = useState("");
     const [ingredientQuantity, setIngredientQuantity] = useState("");
     const [ingredientUnits, setIngredientUnits] = useState("");
+    const [isBrewing, setIsBrewing] = useState(false);
     
 
     const addNewIngredient = () => {
@@ -26,6 +30,15 @@ const Home = (props) => {
             const ingredientQuantityNum = Number(ingredientQuantity)
             props.addUserIngredients(ingredientName, ingredientQuantityNum, ingredientUnits);
         }
+    }
+    
+    const brew = async () => {
+        console.log(props.ingredients);
+        setIsBrewing(true);
+        const newRecipe = await generateRecipe(props.ingredients);
+        props.addNewRecipe(newRecipe);
+        console.log(newRecipe);
+        setIsBrewing(false);
     }
 
     return (
@@ -91,17 +104,45 @@ const Home = (props) => {
                     </div>
                 )}
 
-                {isAddingIngredients && <div className="darkOverlay">s</div>}
+                {isAddingIngredients && <div className="darkOverlay"></div>}
 
                 <div id="recipes">
                     <h1>My Recipes</h1>
+                    <div className="list">
+                        {props.recipes.map((recipe, index) => {
+                            return (
+                                <div key={index} className="individualRecipe" key={index}>
+                                    <h1 key={index} >{recipe.recipeName}</h1>
+                                    {recipe.steps.map((step) => {
+                                        return <p className="step">{step}</p>
+                                    })}
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
-                <div id="brewButtons">
-                    <button id="brewButton">Brew Something New</button>
+                <div id="Home-btn">
+                    <button id="brewButton" onClick={() => {brew()}}>Brew Something New</button>
                 </div>
+
+                {isBrewing && (
+                    <div className="addRecipePopup">
+                        <div className="closeIcon" onClick={() => setIsBrewing(false)}>
+                            <CloseIcon color="white" fontSize="large"/>
+                        </div>
+                    </div>
+                )}
+
+                {isBrewing && <div className="darkOverlayBrew"></div>}
+                {isBrewing && <div className="karinaStir"><img src={karinaStir1}/></div>}
+
+
                 <div id="karina">
-                    <div></div>
-                    <img className="" src={karinaDance}></img>
+                    <div>
+
+                    </div>
+                    <img className="" src={karinaH}></img>
+
                 </div>
             </div>
         </div>
