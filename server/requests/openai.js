@@ -34,6 +34,7 @@ class OpenAI {
         `Finally, on the last part of the response, provide an estimated amount of calories with a number ONLY, along with all the ingredients used in the recipe + amount used in the format: quanitity, measurementUnit, ingredientName`;
   
         let gptUserContent = ingredientsString;
+        console.log(gptUserContent);
   
         
         const response = await this.openai.createChatCompletion({
