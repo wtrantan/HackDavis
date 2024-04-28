@@ -17,6 +17,7 @@ class OpenAI {
    */
   async getRecipeGeneration(ingredients, temperature) {
     try {
+      // console.log(ingredients);
       if (ingredients.length !== 0) {
         let ingredientsString = ""
         for (let i = 0; i < ingredients.length; i++) {
@@ -34,7 +35,7 @@ class OpenAI {
         `Finally, on the last part of the response, provide an estimated amount of calories with a number ONLY, along with all the ingredients used in the recipe + amount used in the format: quanitity, measurementUnit, ingredientName`;
   
         let gptUserContent = ingredientsString;
-        console.log(gptUserContent);
+        // console.log("ASDASD_" + gptUserContent);
   
         
         const response = await this.openai.createChatCompletion({

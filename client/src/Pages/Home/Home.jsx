@@ -32,12 +32,11 @@ const Home = (props) => {
         }
     }
 
-    const delay = ms => new Promise(res => setTimeout(res, ms));
+    // const delay = ms => new Promise(res => setTimeout(res, ms));
     
     const brew = async () => {
         setIsBrewing(true);
         const newRecipe = await generateRecipe(props.ingredients);
-        await delay(5000);
         props.addNewRecipe(newRecipe);
         console.log(newRecipe);
         setIsBrewing(false);

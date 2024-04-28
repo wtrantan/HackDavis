@@ -1,12 +1,10 @@
 export const generateRecipe = async (ingredients) => {
     if (ingredients) {
-        let ingredientsString = ingredients.map((ingredient) => {
+        let ingredientsList = ingredients.map((ingredient) => {
             return ingredient.ingredientName + " " + ingredient.quantity + " " + ingredient.measurementUnit;
         })
 
-        ingredientsString = ingredientsString.join('\n');
-
-        console.log(ingredientsString);
+        console.log(ingredients);
         const recipeRecommendationRes = await fetch(
             "http://localhost:3001/gen-recipe/",
             {
@@ -15,7 +13,7 @@ export const generateRecipe = async (ingredients) => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    ingredients: ingredientsString
+                    ingredients: ingredientsList
                 }),
             }
         );
