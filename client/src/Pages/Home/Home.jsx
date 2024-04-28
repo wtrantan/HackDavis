@@ -5,6 +5,7 @@ import fridgeOpen from "../../assets/images/fridge_open.png";
 import fridgeClosed from "../../assets/images/fridge_closed.png";
 import karinaStir from "../../assets/images/KarinaStir.gif";
 import karinaDance from "../../assets/images/karinaDance.gif";
+import karinaH from "../../assets/images/karinaHeart.png";
 import { useState } from "react";
 
 const testRecipes = [
@@ -41,14 +42,14 @@ const Home = () => {
                 <div id="recipes">
                     <h1>My Recipes</h1>
                 </div>
-                <div id="brewButtons">
+                <div id="Home-btn">
                     <button id="brewButton">Brew Something New</button>
                 </div>
                 <div id="karina">
                     <div>
 
                     </div>
-                    <img className="" src={karinaDance}></img>
+                    <img className="" src={karinaH}></img>
 
                 </div>
             </div>
