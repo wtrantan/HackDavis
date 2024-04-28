@@ -1,11 +1,11 @@
 import react from 'react';
 import Navbar from '../../Components/Navbar/Navbar.jsx';
-const Home = () => {
+const About = () => {
     return(
         <>
         <Navbar/>
         </>
     );
 }
-export default Home;
+export default About;
  
