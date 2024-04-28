@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import Sky from 'react-sky';
 import pasta from "../../assets/images/pasta.png";
 import ramen from "../../assets/images/ramen.png";
-import apple from "../../assets/images/apple.png";
+import apple from "../../assets/images/apple1.png";
 import salad from "../../assets/images/salad.png";
-import taco from "../../assets/images/taco.png";
+import taco from "../../assets/images/taco1.png";
 import dumpling from "../../assets/images/dumpling.png";
 import sushi from "../../assets/images/sushi.png";
 import sandwich from "../../assets/images/sandwich.png";
 import fruits from "../../assets/images/fruits.png";
 import karina from "../../assets/images/karina.png";
+
 // you can pass imported images to Sky
 
 
@@ -31,6 +32,7 @@ class Skyback extends Component {
             7: fruits,
             8: sandwich,
             9: karina,
+        
             /* you can pass images in any form: link, imported via webpack... */
             /* 3: your other image... */
             /* 4: your other image... */
@@ -38,7 +40,7 @@ class Skyback extends Component {
             /* ... */
           }}
           how={100} /* Pass the number of images Sky will render chosing randomly */
-          time={40} /* time of animation */
+          time={20} /* time of animation */
           size={'150px'} /* size of the rendered images */
           background={'lightgray'} /* color of background */
         />
