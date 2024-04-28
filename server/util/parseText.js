@@ -33,10 +33,17 @@ const parseGPTResponse = (response) => {
         let ingredientName;
         let info = [];
         let startIndex = 0;
+        let lastSpaceIndex = 0;
+        let found = 0;
         for (let i = 0; i < ingredientParsed.length; i++) {
-            if (ingredientParsed[i] === " ") {
+            
+            if (ingredientParsed[i] === " " && found < 2) {
                 info.push(ingredientParsed.slice(startIndex, i));
                 startIndex = i + 1;
+                found++;
+            }
+            if (ingredientParsed[i] === " ") {
+                lastSpaceIndex = i;
             }
         }
         info.push(ingredientParsed.slice(startIndex));
