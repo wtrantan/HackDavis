@@ -9,6 +9,7 @@ import dumpling from "../../assets/images/dumpling.png";
 import sushi from "../../assets/images/sushi.png";
 import sandwich from "../../assets/images/sandwich.png";
 import fruits from "../../assets/images/fruits.png";
+import karina from "../../assets/images/karina.png";
 // you can pass imported images to Sky
 
 
@@ -29,15 +30,16 @@ class Skyback extends Component {
             6: sushi,
             7: fruits,
             8: sandwich,
+            9: karina,
             /* you can pass images in any form: link, imported via webpack... */
             /* 3: your other image... */
             /* 4: your other image... */
             /* 5: your other image... */
             /* ... */
           }}
-          how={70   } /* Pass the number of images Sky will render chosing randomly */
+          how={100} /* Pass the number of images Sky will render chosing randomly */
           time={40} /* time of animation */
-          size={'100px'} /* size of the rendered images */
+          size={'150px'} /* size of the rendered images */
           background={'lightgray'} /* color of background */
         />
       </div>

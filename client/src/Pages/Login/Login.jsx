@@ -26,7 +26,7 @@ const Login = (props) => {
       
       return (<>
       <Navbar isLoggedIn={false} handleLogout={props.handleLogout}/>
-      <Sky/>
+      <Sky className="center"></Sky>
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }} >
             
               <form onSubmit={handleSubmit} className="card">
