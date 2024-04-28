@@ -6,10 +6,7 @@ import fridgeClosed from "../../assets/images/fridge_closed.png";
 
 import { useState } from "react";
 
-const testRecipes = [
-    {
-        recipeName: ""
-    }
+const testIngredients = [
 ]
 
 const Home = () => {
