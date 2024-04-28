@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.51fce8ea.css",
+    "main.js": "/static/js/main.ada56895.js",
+    "static/media/karinaDance.gif": "/static/media/karinaDance.8f8c001cdf5bb080ca9f.gif",
+    "static/media/KarinaStir.gif": "/static/media/KarinaStir.41cd84284b6e68824627.gif",
+    "static/media/KarinaStir_1.gif": "/static/media/KarinaStir_1.41cd84284b6e68824627.gif",
+    "static/media/ramen.png": "/static/media/ramen.2bd94881575dd887bf78.png",
+    "static/media/karinaHeart.png": "/static/media/karinaHeart.f937bf5abfd68a6ee9c1.png",
+    "static/media/pasta.png": "/static/media/pasta.9ad610efbd5a21ee4749.png",
+    "static/media/sandwich.png": "/static/media/sandwich.de301877ae12020938d2.png",
+    "static/media/sushi.png": "/static/media/sushi.7affded222e0416f033d.png",
+    "static/media/fruits.png": "/static/media/fruits.e8985f500f22fad311a2.png",
+    "static/media/fridge_open.png": "/static/media/fridge_open.8efd31297fe9176411d6.png",
+    "static/media/salad.png": "/static/media/salad.7d0f2872ac502bea1094.png",
+    "static/media/karina.png": "/static/media/karina.9382b92e4a1199dac11a.png",
+    "static/media/fridge_closed.png": "/static/media/fridge_closed.f28aa3cef7699748d528.png",
+    "static/media/taco1.png": "/static/media/taco1.8cec61012ca3a750fbda.png",
+    "static/media/dumpling.png": "/static/media/dumpling.11508e0e692231ea0f29.png",
+    "static/media/apple1.png": "/static/media/apple1.87a389a9dc6b0336352c.png",
+    "index.html": "/index.html",
+    "main.51fce8ea.css.map": "/static/css/main.51fce8ea.css.map",
+    "main.ada56895.js.map": "/static/js/main.ada56895.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.51fce8ea.css",
+    "static/js/main.ada56895.js"
+  ]
+}
