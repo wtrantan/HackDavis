@@ -30,4 +30,18 @@ async function getRecipe(recipeID) {
     return result[0][0];
 }
 
-module.exports = { createRecipe, getRecipe };
+/*
+Return for getRecipesForUser sorta looks like this:
+[
+  { recipeID: 4, recipeName: 'radishCake', userID: 14, calories: 200 },
+  { recipeID: 5, recipeName: 'Ramen', userID: 14, calories: 400 }
+]
+*/
+
+async function getRecipesForUser(userID) {
+    const result = await connection.promise().query('SELECT * FROM recipes WHERE userID = ?', userID);
+    console.log(result[0]);
+    return result[0];
+}
+
+module.exports = { createRecipe, getRecipe, getRecipesForUser };
