@@ -1,4 +1,5 @@
 import Navbar from '../../Components/Navbar/Navbar.jsx';
+import Sky from '../../Components/Sky/Sky.jsx';
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import './Login.css';
@@ -7,6 +8,9 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 const Login = (props) => {
       const navigate = useNavigate()
       const [username, setUsername] = useState('');
@@ -18,11 +22,14 @@ const Login = (props) => {
           console.log('Username:', username);
           console.log('Password:', password);
       };
-  
+
+      
       return (<>
       <Navbar isLoggedIn={false} handleLogout={props.handleLogout}/>
-          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
-              <form onSubmit={handleSubmit}>
+      <Sky/>
+          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }} >
+            
+              <form onSubmit={handleSubmit} className="card">
                   <Grid container spacing={3} direction="column" alignItems="center">
                       <Grid item>
                           <Typography variant="h4" gutterBottom>Login</Typography>
@@ -50,7 +57,7 @@ const Login = (props) => {
                           />
                       </Grid>
                       <Grid item>
-                          <Button variant="contained" type="submit" onClick={() => {
+                          <Button sx={{background:'purple' }} variant="contained" type="submit" onClick={() => {
                             props.handleLogin();
                             navigate("/")
                             }}>

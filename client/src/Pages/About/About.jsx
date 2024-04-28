@@ -3,6 +3,7 @@ const About = () => {
     return(
         <>
         <Navbar/>
+        
         </>
     );
 }
