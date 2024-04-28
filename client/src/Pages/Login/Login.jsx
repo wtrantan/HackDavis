@@ -1,8 +1,6 @@
-import react from 'react';
 import Navbar from '../../Components/Navbar/Navbar.jsx';
 import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-import { Link } from 'react-router-dom'; // Import for navigation
 import './Login.css';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
