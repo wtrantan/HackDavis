@@ -11,7 +11,7 @@ function Navbar() {
   };
 
   return (
-    <nav id="navbar" className=''>
+    <nav id="navbar" className='Navbar'>
        <div className="title">Karina</div>
       {isLoggedIn && (
 
