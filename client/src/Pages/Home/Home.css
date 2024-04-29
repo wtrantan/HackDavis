@@ -46,6 +46,16 @@
     overflow-y: scroll;
 }
 
+.list {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.calorieCount {
+    color: rgb(110, 18, 34);
+}
+
 #recipes h1 {
     margin-left: 1rem;
     color: pink;
@@ -106,7 +116,22 @@
     padding: 0 10px;
     color: pink;
     max-width: 100%;
+    border: 2px solid pink;
+}
 
+.ingredientDiv {
+    position: relative;
+    user-select: none
+}
+
+.ingredientDiv:hover {
+    cursor: pointer;
+}
+
+.deleteIngredient {
+    position: absolute;
+    right: 0px;
+    
 }
 
 .ingredients::-webkit-scrollbar {
@@ -332,4 +357,5 @@
 
 .step {
     color: white;
+    padding: 0 1rem;
 }

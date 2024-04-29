@@ -1,6 +1,8 @@
 import Navbar from "../../Components/Navbar/Navbar.jsx";
 import "./Home.css";
 
+import { v4 as uuidv4 } from 'uuid';
+
 import fridgeOpen from "../../assets/images/fridge_open.png";
 import fridgeClosed from "../../assets/images/fridge_closed.png";
 import karinaStir from "../../assets/images/KarinaStir.gif";
@@ -72,9 +74,10 @@ const Home = (props) => {
                         <div className="ingredients">
                             {props.ingredients.map((ingredient, index) => {
                                 return (
-                                    <p
-                                        key={index}
-                                    >{`${ingredient.quantity} ${ingredient.measurementUnit} ${ingredient.ingredientName} `}</p>
+                                    <div className="ingredientDiv" key={index} onClick={() => props.deleteIngredient(ingredient.id)}>
+                                        <p key={index}>{`${ingredient.quantity} ${ingredient.measurementUnit} ${ingredient.ingredientName} `}</p>
+                                    </div>
+                                 
                                 );
                             })}
                         </div>
@@ -120,6 +123,7 @@ const Home = (props) => {
                                     {recipe.steps.map((step) => {
                                         return <p className="step">{step}</p>
                                     })}
+                                    <h2 className="calorieCount">{recipe.calories} Calories</h2>
                                 </div>
                             )
                         })}
